@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dictionary - Prince Sabu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Salsa&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" href="assets/logo-dictionary.png" />
+    <link rel="stylesheet" href="Styles/large-style.css" />
+    <link rel="stylesheet" href="Styles/small-style.css" />
+  </head>
+  <body>
+    <div class="master-full-container">
+      <!-- For logo, night mode, and fonts -->
+      <header>
+        <div class="logo-container">
+          <img src="assets/logo-dictionary.png" alt="Logo of dictionary" />
+        </div>
+        <div class="right-container">
+          <!-- Font selector -->
+          <div class="font-selector">
+            <select name="" id="fonts">
+              <option value="serif">Serif</option>
+              <option value="San-Serif">San Serif</option>
+              <option value="monospace">monospace</option>
+            </select>
+          </div>
+          <!-- Separator -->
+          <div class="seperstor"></div>
+          <!-- Night mode -->
+
+          <div class="night-mode">
+            <div class="switch-container">
+              <label class="switch">
+                <input type="checkbox" id="nightModeToggle" />
+                <span class="slider round"></span>
+              </label>
+            </div>
+            <svg
+              id="moon"
+              xmlns="http://www.w3.org/2000/svg"
+              width="25"
+              height="25"
+              fill="currentColor"
+              class="bi bi-moon"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M6 .278a.77.77 0 0 1 .08.858 7.2 7.2 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277q.792-.001 1.533-.16a.79.79 0 0 1 .81.316.73.73 0 0 1-.031.893A8.35 8.35 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.75.75 0 0 1 6 .278M4.858 1.311A7.27 7.27 0 0 0 1.025 7.71c0 4.02 3.279 7.276 7.319 7.276a7.32 7.32 0 0 0 5.205-2.162q-.506.063-1.029.063c-4.61 0-8.343-3.714-8.343-8.29 0-1.167.242-2.278.681-3.286"
+              />
+            </svg>
+          </div>
+        </div>
+      </header>
+      <!-- For search bar -->
+      <div class="search-container">
+        <div class="search-bar">
+          <input type="text" id="searchBar" autocomplete="off" />
+          <button id="searchButton">
+            <img src="assets/search.svg" alt="" />
+          </button>
+        </div>
+      </div>
+
+      <!-- For result content -->
+      <main>
+        <!-- For heading and audio playing -->
+        <div class="content">
+          <div class="result-left-container">
+            <div class="search-word"><h1 id="resultWord"></h1></div>
+            <div class="sounding"><h4 id="resultSounding"></h4></div>
+          </div>
+          <div class="result-right-container">
+            <button id="playButton">
+              <div class="play-button">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="40"
+                  height="40"
+                  fill="currentColor"
+                  class="bi bi-play-fill"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"
+                  />
+                </svg>
+                <audio class="audio-player" id="audioPlayer" src=""></audio>
+              </div>
+            </button>
+          </div>
+        </div>
+        <!-- For noun -->
+        <div class="noun-container" id="nounContainer">
+          <div class="noun" id="nounHeading">noun</div>
+          <div class="h-line"></div>
+        </div>
+
+        <!-- For Meaning -->
+        <div class="meaning-container" id="nounMeaningContainer">
+          <div class="meaning-title">Meaning</div>
+          <div class="meaning-contents">
+            <ul id="nounDefinition">
+              
+            </ul>
+          </div>
+        </div>
+        <!-- For synonyms -->
+        <div class="synonyms-container" id="synonymsContainer">
+          <div class="synonym-title" id="displaySynonymTitle">Synonyms</div>
+          <div class="synonym-content" id="resultSynonyms"></div>
+        </div>
+        <!-- For verb -->
+        <div class="noun-container" id="verbContainer">
+          <div class="noun">verb</div>
+          <div class="h-line"></div>
+        </div>
+        <!-- for meanings -->
+        <div class="verb-meaning-container" id="verbMeaningCOntainer">
+          <div class="verb-meaning-title">Meaning</div>
+          <div class="verb-meaning-contents">
+            <ul id="verbDefinition">
+             
+            </ul>
+          </div>
+        </div>
+        <!-- for display source -->
+        <footer>
+          <div class="source-title">Source</div>
+          <div class="source-link">
+            <a id="resultSource" href=""></a>
+          </div>
+        </footer>
+      </main>
+      <div class="no-message">
+        <h1 id="noResult"></h1>
+        <h2 id="tryAgain"></h2>
+      </div>
+    </div>
+
+    <!-- Script link -->
+    <script src="script/jsonScript.js"></script>
+    <script src="script/script.js"></script>
+    <!-- <script src="script/dictionary.js"></script> -->
+  </body>
+</html>

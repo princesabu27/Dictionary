@@ -1,0 +1,17 @@
+/* For Small screens */
+
+@media only screen and (max-width: 1022px) {
+    .master-full-container{
+        width: 100%;
+        /* background-color: aqua; */
+    }
+
+    .search-bar-container > input{
+        width: 75%;
+        height: 90%;
+        background-color: transparent;
+        outline: none;
+        font-size: larger;
+        border: none;
+      }
+}
