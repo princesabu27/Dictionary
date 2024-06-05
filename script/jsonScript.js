@@ -21,6 +21,10 @@ let meanings;
 // let verbDef
 // let nounDefinition;
 
+let newVerbDef = document.getElementById("verbDefinition");
+
+let newNounDef = document.getElementById("nounDefinition");
+
 // Function for search option
 searchButton.addEventListener("click", function () {
   let searchText = searchBar.value;
@@ -39,11 +43,31 @@ searchButton.addEventListener("click", function () {
       document.getElementsByClassName("no-message")[0].style.display = "none";
       document.getElementsByTagName("main")[0].style.display = "flex";
 
+// .....................................................................................
+
+
+
+
+const resultWordElement = document.getElementById("resultWord");
+let wordColor = resultWordElement.style.color;
+
+
+// console.log(wordColor)
+
+// ...............................................................
+
+
+
       // CLear all li...................................................................
-      const listItems = document.querySelectorAll("li");
+      const listItems = newNounDef.querySelectorAll("li");
+      const newItems = newVerbDef.querySelectorAll("li");
 
       // Iterate over the NodeList and remove each <li> element
       listItems.forEach((item) => {
+        item.parentNode.removeChild(item);
+      });
+
+      newItems.forEach((item) => {
         item.parentNode.removeChild(item);
       });
 
@@ -96,26 +120,24 @@ searchButton.addEventListener("click", function () {
       //   resultSynonyms.textContent = "No synonyms found";
       // }
 
-
-meanings = myJson[0].meanings;
+      meanings = myJson[0].meanings;
       meanings.find((item) => {
-          if (item.partOfSpeech == "noun") {
-          
-let mySynonyms = data[0].meanings[0].synonyms;
-console.log(mySynonyms);
-let synonymsString = mySynonyms.join(", ");
+        if (item.partOfSpeech == "noun") {
+          let mySynonyms = data[0].meanings[0].synonyms;
+          console.log(mySynonyms);
+          let synonymsString = mySynonyms.join(", ");
 
-resultSynonyms.textContent = synonymsString;
-            // const namesString = names.join(", ");
-        
-// let nounSynonyms = " "
+          resultSynonyms.textContent = synonymsString;
+          // const namesString = names.join(", ");
 
-//             for (let obj of item.synonyms) {
-//               nounSynonyms += JSON.stringify(obj) + " ";
-//           }
-// resultSynonyms.textContent = nounSynonyms;
-          }
-        })
+          // let nounSynonyms = " "
+
+          //             for (let obj of item.synonyms) {
+          //               nounSynonyms += JSON.stringify(obj) + " ";
+          //           }
+          // resultSynonyms.textContent = nounSynonyms;
+        }
+      });
 
       // let mySynonyms = data[0].
 
@@ -155,6 +177,7 @@ resultSynonyms.textContent = synonymsString;
             const li = document.createElement("li");
             li.textContent = definitionObj.definition;
             nounDefinition.appendChild(li);
+            li.style.color = wordColor;
           });
         } else {
           document.getElementsByClassName("noun-container")[0].style.display =
@@ -197,10 +220,16 @@ resultSynonyms.textContent = synonymsString;
         if (verbMeaning && verbMeaning.definitions.length > 0) {
           // Create <li> elements for each definition and append to the <ul>
           verbMeaning.definitions.forEach((definitionObj) => {
-            const li = document.createElement("li");
+            let li = document.createElement("li");
             li.textContent = definitionObj.definition;
             verbDefinition.appendChild(li);
+
+            li.style.color = wordColor;
+
+          
           });
+
+          
         } else {
           // document.getElementsByClassName("noun-container")[0].style.display = "none";
           // Display an error message if no definitions are found

@@ -6,7 +6,7 @@ let nounHeading = document.getElementById("nounHeading");
 let li = document.querySelectorAll("li");
 let moon = document.getElementById("moon");
 let fonts = document.getElementById("fonts");
-
+let nounNewList = document.getElementById ("nounDefinition");
 
 // for Toggle night mode........................
 // Add an event listener to the toggle
@@ -22,6 +22,11 @@ nightModeToggle.addEventListener("change", function () {
     fonts.style.color = "white";
     // document.getElementById("noResult").style.color = "white"
     document.getElementById("tryAgain").style.color = "white"
+
+
+
+    const newList = nounNewList.querySelectorAll('li');
+    
 
     const listItems = document.querySelectorAll('li');
             
@@ -51,7 +56,7 @@ nightModeToggle.addEventListener("change", function () {
 
     const listItems = document.querySelectorAll('li');
     listItems.forEach(li => {
-      li.style.color = "black";// Change to your desired font
+      li.style.color = "black";// Change to your desired font color
 
 
 
